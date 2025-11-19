@@ -14,7 +14,7 @@ function AddTask(){
     }
 
     return(
-        <div>
+        <div className="py-5">
             <form  onSubmit={handleSubmit} className="flex items-center gap-2 w-full max-w-md mx-auto bg-white p-4 rounded-xl shadow-md">
                 <input type="text" value={text} 
                     onChange={(e) => setText(e.target.value)}
