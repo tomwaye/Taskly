@@ -9,7 +9,7 @@ function AddTask(){
     const handleSubmit = (e) => {
         e.preventDefault()
         if (text.trim() === "") return
-        setTasks([...tasks, {title: text}])
+        setTasks([...tasks, {title: text, completed: false}])
         setText("")
     }
 
