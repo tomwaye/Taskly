@@ -1,15 +1,24 @@
-import { useContext, useState} from "react"
-import { TaskContext } from "../contexts/TaskContext"
+import {useState} from "react"
+import { addDoc, collection, serverTimestamp} from "firebase/firestore"
+import { db } from "../services/Firebase"
 
 function AddTask(){
 
-    const {tasks, setTasks} = useContext(TaskContext)
     const [text, setText]= useState("")
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         if (text.trim() === "") return
-        setTasks([...tasks, {title: text, completed: false}])
+        try{
+            const docRef = await addDoc(collection(db, "tasks"), {
+                title: text,
+                completed: false,
+                createdAt: serverTimestamp()
+            })
+            console.log("Document written with ID: ", docRef.id)
+        } catch(e) {
+            console.log(e)
+        }
         setText("")
     }
 
