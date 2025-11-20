@@ -12,7 +12,7 @@
 /build
 
 #protected
-/services/.Firebase.js
+/services
 
 # misc
 .DS_Store
