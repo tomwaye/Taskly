@@ -1,24 +1,25 @@
 import {useState} from "react"
-import { addDoc, collection, serverTimestamp} from "firebase/firestore"
-import { db } from "../services/Firebase"
+import { addDoc, collection, serverTimestamp } from "firebase/firestore"
+import { db } from "../services/firebase"
 
-function AddTask(){
+function AddTask({user}){
 
     const [text, setText]= useState("")
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        if (text.trim() === "") return
-        try{
-            const docRef = await addDoc(collection(db, "tasks"), {
-                title: text,
-                completed: false,
-                createdAt: serverTimestamp()
-            })
-            console.log("Document written with ID: ", docRef.id)
-        } catch(e) {
-            console.log(e)
-        }
+            if (text.trim() === "") return
+            try{
+                const docRef = await addDoc(collection(db, "tasks"), {
+                    title: text,
+                    completed: false,
+                    createdAt: serverTimestamp(),
+                    userID: user.uid
+                })
+                console.log("Document written with ID: ", docRef.id)
+            } catch(e) {
+                console.log(e)
+            }
         setText("")
     }
 

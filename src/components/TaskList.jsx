@@ -1,19 +1,25 @@
 import { useEffect, useState } from "react";
 import Task from "./Task";
-import { collection, updateDoc, deleteDoc, onSnapshot, doc } from "firebase/firestore";
-import { db } from "../services/Firebase";
+import { collection, updateDoc, deleteDoc, onSnapshot, doc, query, where, orderBy } from "firebase/firestore";
+import { db } from "../services/firebase";
 
-function TaskList(){
+function TaskList({user}){
     const [tasks, setTasks] = useState([])
 
     useEffect(()=>{
-        const q = collection(db, "tasks")
+        if(!user?.uid) return
+        const q = query(
+            collection(db, "tasks"),
+            where("userID", "==", user?.uid)
+        )
         const unsubscribe = onSnapshot(q, (snapshot) =>{
             const tasksArray = snapshot.docs.map(doc => ({id: doc.id, ...doc.data()}))
             setTasks(tasksArray)
         })
         return()=> unsubscribe()
-    }, [])
+    }, [user])
+
+    
 
     const toggleComplete = async (id, completed) => {
         const taskRef = doc(db, "tasks", id);
