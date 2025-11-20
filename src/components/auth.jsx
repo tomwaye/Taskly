@@ -45,24 +45,18 @@ export default function Auth({ setUser }) {
     }
   };
 
-  const handleLogout = async () => {
-    await signOut(auth);
-    setUser(null);
-  };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-4">
       <div className="w-full max-w-md p-8 bg-white rounded-xl shadow-lg space-y-6">
         <h2 className="text-2xl font-bold text-center text-gray-800">Welcome to Taskly</h2>
 
-        {/* Display error message */}
         {error && (
           <div className="text-red-600 font-medium text-center bg-red-100 p-2 rounded">
             {error}
           </div>
         )}
 
-        {/* Inputs */}
         <input
           type="email"
           placeholder="Email"
@@ -78,7 +72,6 @@ export default function Auth({ setUser }) {
           className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
         />
 
-        {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4">
           <button
             onClick={handleSignup}
