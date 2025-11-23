@@ -1,3 +1,3 @@
 A simple task manager.
 
-[https:](https://tomwaye.github.io/Taskly/)
+[website](https://tomwaye.github.io/Taskly/)
