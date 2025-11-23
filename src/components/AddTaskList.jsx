@@ -26,7 +26,7 @@ function AddTaskList({ user }) {
 
     return (
         <div className="py-5">
-            <form onSubmit={handleSubmit} className="flex items-center gap-2 w-full max-w-md mx-auto bg-white p-4 rounded-xl shadow-md">
+            <form onSubmit={handleSubmit} className="flex items-center gap-2 w-full max-w-md mx-auto bg-white p-4 rounded-xl shadow-md dark:bg-gray-800 transition-colors duration-200">
                 <input type="text" value={text}
                     onChange={(e) => setText(e.target.value)}
                     placeholder="Add taskbox"
@@ -42,6 +42,7 @@ function AddTaskList({ user }) {
                     focus:border-transparent
                     transition
                     placeholder-gray-400
+                    dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400
                     "
                 />
                 <button

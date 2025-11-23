@@ -38,6 +38,7 @@ function AddTask({ user }) {
                     flex flex-col sm:flex-row gap-4
                     items-center w-full max-w-2xl mx-auto
                     bg-white p-5 rounded-xl shadow-lg
+                    dark:bg-gray-800 transition-colors duration-200
                 "
             >
                 {/* Task Input */}
@@ -51,6 +52,7 @@ function AddTask({ user }) {
                         p-3 rounded-lg border border-gray-300
                         focus:outline-none focus:ring-2 focus:ring-blue-400
                         placeholder-gray-400
+                        dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400
                     "
                 />
 
@@ -65,6 +67,7 @@ function AddTask({ user }) {
                         p-3 rounded-lg border border-gray-300
                         focus:outline-none focus:ring-2 focus:ring-blue-400
                         placeholder-gray-400
+                        dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400
                     "
                 />
 
@@ -75,6 +78,7 @@ function AddTask({ user }) {
                         bg-gray-100 px-3 py-2 rounded-lg
                         border border-gray-300
                         cursor-pointer select-none
+                        dark:bg-gray-700 dark:border-gray-600
                     "
                 >
                     <input
@@ -83,7 +87,7 @@ function AddTask({ user }) {
                         onChange={(e) => setPriority(e.target.checked)}
                         className="h-4 w-4"
                     />
-                    <span className="text-gray-700">Priority</span>
+                    <span className="text-gray-700 dark:text-white">Priority</span>
                 </label>
 
                 {/* Add button */}
