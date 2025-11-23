@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Taskly/static/css/main.c60f1d21.css",
+    "main.js": "/Taskly/static/js/main.3adc6246.js",
+    "index.html": "/Taskly/index.html",
+    "main.c60f1d21.css.map": "/Taskly/static/css/main.c60f1d21.css.map",
+    "main.3adc6246.js.map": "/Taskly/static/js/main.3adc6246.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c60f1d21.css",
+    "static/js/main.3adc6246.js"
+  ]
+}
